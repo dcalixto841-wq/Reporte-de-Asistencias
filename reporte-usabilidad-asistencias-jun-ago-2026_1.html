@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reporte de Usabilidad de Asistencias &mdash; ERA Social</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7;
+    --surface: #ffffff;
+    --surface-2: #fcfcfb;
+    --text: #0b0b0b;
+    --text-2: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --brand: #eb6834;
+    --brand-ink: #0b0b0b;
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --series-4: #eda100;
+    --series-5: #e87ba4;
+    --series-6: #008300;
+    --series-7: #4a3aa7;
+    --good: #0ca30c;
+    --warning: #d98600;
+    --serious: #ec835a;
+    --critical: #d03b3b;
+    --good-bg: #e6f6e6;
+    --warning-bg: #fdf1dc;
+    --critical-bg: #fbe7e7;
+    --shadow: 0 1px 2px rgba(11,11,11,0.06), 0 8px 24px rgba(11,11,11,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --page: #0d0d0d;
+      --surface: #171716;
+      --surface-2: #1a1a19;
+      --text: #ffffff;
+      --text-2: #c3c2b7;
+      --muted: #8f8d86;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --brand: #d95926;
+      --brand-ink: #ffffff;
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --series-3: #199e70;
+      --series-4: #c98500;
+      --series-5: #d55181;
+      --series-6: #17a317;
+      --series-7: #9085e9;
+      --good: #0ca30c;
+      --warning: #fab219;
+      --serious: #ec835a;
+      --critical: #e66767;
+      --good-bg: rgba(12,163,12,0.14);
+      --warning-bg: rgba(250,178,25,0.14);
+      --critical-bg: rgba(224,90,90,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #171716;
+    --surface-2: #1a1a19;
+    --text: #ffffff;
+    --text-2: #c3c2b7;
+    --muted: #8f8d86;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255,255,255,0.10);
+    --brand: #d95926;
+    --brand-ink: #ffffff;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #17a317;
+    --series-7: #9085e9;
+    --good: #0ca30c;
+    --warning: #fab219;
+    --serious: #ec835a;
+    --critical: #e66767;
+    --good-bg: rgba(12,163,12,0.14);
+    --warning-bg: rgba(250,178,25,0.14);
+    --critical-bg: rgba(224,90,90,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--page); }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px 64px; }
+
+  header.site {
+    background: var(--surface);
+    border-bottom: 4px solid var(--brand);
+  }
+  .header-inner {
+    max-width: 1180px; margin: 0 auto; padding: 22px 20px 20px;
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    justify-content: space-between;
+  }
+  .brand { display:flex; align-items:center; gap:12px; }
+  .brand svg { flex-shrink:0; }
+  .brand-name { font-weight:800; font-size:20px; letter-spacing:.2px; }
+  .brand-name .accent { color: var(--brand); }
+  .brand-sub { font-size:12.5px; color:var(--text-2); margin-top:2px; }
+  .header-meta { text-align:right; font-size:12.5px; color:var(--text-2); }
+  .header-meta strong { color:var(--text); }
+
+  .hero { padding: 28px 0 6px; }
+  .hero h1 { font-size: clamp(22px,3vw,30px); margin:0 0 6px; letter-spacing:-.01em; }
+  .hero p { margin:0; color:var(--text-2); font-size:14.5px; max-width:760px; }
+
+  .kpi-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:12px; margin: 22px 0 30px;
+  }
+  .kpi {
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:16px 16px 14px; box-shadow: var(--shadow);
+  }
+  .kpi .label { font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); font-weight:600; }
+  .kpi .value { font-size:26px; font-weight:800; margin-top:6px; font-variant-numeric:proportional-nums; }
+  .kpi .sub { font-size:12px; color:var(--text-2); margin-top:4px; }
+  .kpi.accent { border-color: color-mix(in srgb, var(--brand) 35%, var(--border)); }
+  .kpi.accent .value { color: var(--brand); }
+
+  section { margin: 40px 0; }
+  .section-head {
+    display:flex; align-items:baseline; gap:10px; margin-bottom:4px;
+    border-left: 4px solid var(--brand); padding-left:12px;
+  }
+  .section-head h2 { font-size:18px; margin:0; }
+  .section-head .n { font-size:12px; color:var(--muted); font-weight:600; }
+  .section-note { color:var(--text-2); font-size:13.5px; margin: 6px 0 18px 16px; max-width:820px; }
+
+  .callout {
+    background: var(--warning-bg); border:1px solid color-mix(in srgb, var(--warning) 45%, transparent);
+    border-radius:12px; padding:16px 18px; display:flex; gap:12px; align-items:flex-start;
+    margin: 8px 0 24px;
+  }
+  .callout .icon { font-size:20px; line-height:1; }
+  .callout h3 { margin:0 0 4px; font-size:14.5px; }
+  .callout p { margin:0; font-size:13.5px; color:var(--text-2); }
+
+  .card {
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:20px 20px 12px; box-shadow: var(--shadow); margin-bottom:18px;
+  }
+  .card h3 { margin:0 0 2px; font-size:15px; }
+  .card .card-sub { font-size:12.5px; color:var(--muted); margin-bottom:14px; }
+  .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
+  @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .legend { display:flex; flex-wrap:wrap; gap:12px 18px; margin: 2px 0 14px; }
+  .legend-item { display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--text-2); }
+  .legend-swatch { width:10px; height:10px; border-radius:3px; flex-shrink:0; }
+
+  .bars { display:flex; flex-direction:column; gap:10px; }
+  .bar-row { display:grid; grid-template-columns: 150px 1fr 70px; align-items:center; gap:10px; }
+  .bar-row .bar-label { font-size:12.5px; color:var(--text-2); text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-track { position:relative; height:20px; background:var(--surface-2); border-radius:5px; overflow:hidden; }
+  .bar-fill { position:absolute; inset:0 auto 0 0; border-radius:5px; height:100%; }
+  .bar-row .bar-value { font-size:12.5px; font-weight:700; font-variant-numeric:tabular-nums; }
+
+  svg.chart { width:100%; height:auto; display:block; overflow:visible; }
+  .axis-label { font-size:10.5px; fill:var(--muted); font-family: system-ui,sans-serif; }
+  .grid-line { stroke:var(--grid); stroke-width:1; }
+  .baseline-line { stroke:var(--baseline); stroke-width:1; }
+  .val-label { font-size:11px; font-weight:700; fill:var(--text); font-family: system-ui,sans-serif; }
+  .cat-label { font-size:11px; fill:var(--text-2); font-family: system-ui,sans-serif; }
+
+  .tooltip {
+    position:fixed; pointer-events:none; z-index:50; background:var(--text); color:var(--page);
+    font-size:12px; padding:7px 10px; border-radius:8px; box-shadow:var(--shadow);
+    opacity:0; transform:translate(-50%,-100%); transition:opacity .08s ease; white-space:nowrap;
+  }
+  .tooltip strong { font-weight:700; }
+  .tooltip.show { opacity:1; }
+
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  thead th {
+    background:#12110f; color:#fff; text-align:left; padding:9px 10px;
+    font-size:11.5px; text-transform:uppercase; letter-spacing:.03em; font-weight:700;
+  }
+  tbody td { padding:8px 10px; border-bottom:1px solid var(--grid); color:var(--text-2); }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody td.num { text-align:right; font-variant-numeric:tabular-nums; color:var(--text); }
+  tbody td.strong { color:var(--text); font-weight:600; }
+  .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:12px; }
+  .table-wrap table { min-width:560px; }
+  .table-card table { background:var(--surface); }
+
+  .pill { display:inline-flex; align-items:center; gap:5px; padding:2px 9px; border-radius:999px; font-size:11.5px; font-weight:700; }
+  .pill.good { background:var(--good-bg); color: color-mix(in srgb, var(--good) 75%, black 15%); }
+  .pill.warning { background:var(--warning-bg); color: color-mix(in srgb, var(--warning) 70%, black 25%); }
+  .pill.critical { background:var(--critical-bg); color: color-mix(in srgb, var(--critical) 75%, black 10%); }
+  :root[data-theme="dark"] .pill.good, :root:not([data-theme="light"]) .pill.good { color:#8be08b; }
+  :root[data-theme="dark"] .pill.warning, :root:not([data-theme="light"]) .pill.warning { color:#ffd685; }
+  :root[data-theme="dark"] .pill.critical, :root:not([data-theme="light"]) .pill.critical { color:#ffb0b0; }
+
+  .status-track { display:flex; height:34px; border-radius:8px; overflow:hidden; border:1px solid var(--border); }
+  .status-seg { display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff; white-space:nowrap; }
+
+  .divider { height:3px; background: linear-gradient(90deg, var(--brand), transparent); border:none; margin:8px 0 0; border-radius:2px; }
+
+  footer { margin-top:56px; padding-top:20px; border-top:1px solid var(--border); color:var(--muted); font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+
+  .obs-list { margin:0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .obs-list li { display:flex; gap:10px; font-size:13.5px; color:var(--text-2); }
+  .obs-list .num { flex-shrink:0; width:22px; height:22px; border-radius:6px; background:var(--brand); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .obs-list b { color:var(--text); }
+
+  @media print {
+    .tooltip { display:none; }
+    section { page-break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="tooltip" id="tooltip"></div>
+
+<header class="site">
+  <div class="header-inner">
+    <div class="brand">
+      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="21" cy="21" r="20" stroke="var(--brand)" stroke-width="2.5"/>
+        <path d="M21 6 L21 36 M6 21 L36 21" stroke="var(--brand)" stroke-width="2" opacity="0.35"/>
+        <text x="21" y="26" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="14" fill="var(--brand-ink)">ERA</text>
+      </svg>
+      <div>
+        <div class="brand-name">ERA <span class="accent">Social</span></div>
+        <div class="brand-sub">Asistencias &middot; Reporte de Usabilidad</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      Periodo analizado: <strong>Junio &ndash; Agosto 2026</strong><br>
+      Generado: <strong>7 de septiembre de 2026</strong>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Reporte de Usabilidad de Asistencias</h1>
+    <p>Analisis detallado de las solicitudes de servicio (asistencias) registradas por el CAT y de los expuestos por cartera, con desglose de volumen y comportamiento por campana, servicio y region. Fuente: bitacora de solicitudes (Excel), 282 registros del 01/06/2026 al 27/08/2026, mas los expuestos mensuales de julio y agosto. Esta version no incluye costos ni tarifas.</p>
+  </div>
+
+  <div class="kpi-grid" id="kpi-grid"></div>
+
+  <section id="sec-expuestos">
+    <div class="section-head"><h2>Expuestos por cartera</h2><span class="n">vidas cubiertas por mes</span></div>
+    <p class="section-note">Numero de expuestos (vidas cubiertas) por cartera. Aplica a cinco carteras: Contigo Clasica, CR Contigo, Contigo Tradicional, Contigo Prestige y PLIIS. No se cuenta con el dato de expuestos de junio.</p>
+    <div class="kpi-grid" id="kpi-expuestos" style="margin-bottom:22px;"></div>
+    <div class="callout" id="callout-expuestos"></div>
+    <div class="card">
+      <h3>Expuestos por cartera</h3>
+      <div class="card-sub">Julio vs. agosto 2026</div>
+      <div id="chart-expuestos"></div>
+    </div>
+    <div class="table-wrap table-card">
+      <table id="table-expuestos"></table>
+    </div>
+  </section>
+
+  <section id="sec-tendencia">
+    <div class="section-head"><h2>Tendencia mensual</h2><span class="n">volumen de asistencias &mdash; bitacora del CAT</span></div>
+    <p class="section-note">A partir de aqui el analisis usa la bitacora de solicitudes del CAT. El volumen de asistencias solicitadas se mantuvo estable entre junio y agosto, con variaciones menores al 4% mes a mes.</p>
+    <div class="card">
+      <h3>Solicitudes por mes</h3>
+      <div class="card-sub">Numero de asistencias solicitadas, por mes de llamada</div>
+      <div id="chart-volumen"></div>
+    </div>
+  </section>
+
+  <section id="sec-tabla-mensual">
+    <div class="section-head"><h2>Detalle mensual</h2><span class="n">asistencias solicitadas por mes</span></div>
+    <p class="section-note">Cifra completa mes a mes: volumen de asistencias solicitadas y estatus de cierre en CRM.</p>
+    <div class="table-wrap table-card">
+      <table id="table-mensual"></table>
+    </div>
+  </section>
+
+  <section id="sec-campanas">
+    <div class="section-head"><h2>Volumen por campana</h2><span class="n">8 campanas activas</span></div>
+    <p class="section-note">PLIIS concentra la mayor parte del volumen de asistencias solicitadas del periodo. El resto de las campanas (Contigo, Banorte, Salud Total DONDE, Era Social, CR Contigo) representan actividad menor.</p>
+    <div class="card">
+      <h3>Solicitudes por campana</h3>
+      <div class="card-sub">Ordenado por volumen total en el periodo</div>
+      <div id="chart-campanas"></div>
+    </div>
+    <div class="table-wrap table-card" style="margin-top:16px;">
+      <table id="table-campanas"></table>
+    </div>
+  </section>
+
+  <section id="sec-servicios">
+    <div class="section-head"><h2>Mezcla de servicios</h2><span class="n">que se usa cada mes</span></div>
+    <p class="section-note">Orientacion psicologica y orientacion medica telefonica son los servicios de asistencia mas solicitados en volumen.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ranking de servicios</h3>
+        <div class="card-sub">Total de asistencias solicitadas en el periodo, por tipo de servicio</div>
+        <div id="chart-servicios"></div>
+      </div>
+      <div class="card">
+        <h3>Mezcla de servicios por mes</h3>
+        <div class="card-sub">Top 6 servicios + Otros, apilado por mes</div>
+        <div id="chart-servicios-mes"></div>
+        <div class="legend" id="legend-servicios-mes"></div>
+      </div>
+    </div>
+    <div class="table-wrap table-card">
+      <table id="table-subservicios"></table>
+    </div>
+  </section>
+
+  <section id="sec-geografia">
+    <div class="section-head"><h2>Distribucion geografica</h2><span class="n">30 estados, 112 municipios</span></div>
+    <p class="section-note">Estado de Mexico y Ciudad de Mexico concentran el 38% de las solicitudes del periodo.</p>
+    <div class="card">
+      <h3>Top 10 estados</h3>
+      <div class="card-sub">Numero de solicitudes por estado</div>
+      <div id="chart-estados"></div>
+    </div>
+  </section>
+
+  <section id="sec-estatus">
+    <div class="section-head"><h2>Estatus de cierre en CRM</h2><span class="n">completado vs. pendiente</span></div>
+    <div class="card">
+      <div id="chart-estatus"></div>
+    </div>
+  </section>
+
+  <section id="sec-hallazgos">
+    <div class="section-head"><h2>Hallazgos clave</h2></div>
+    <div class="card">
+      <ol class="obs-list" id="obs-list"></ol>
+    </div>
+  </section>
+
+  <footer>
+    <span>ERA Social &middot; Reporte de Usabilidad de Asistencias</span>
+    <span>Fuente: Reporte_de_Usabilidad_JunioAgosto_2026_APLOS.xlsx</span>
+  </footer>
+
+</div>
+
+<script id="report-data" type="application/json">{"meta": {"total_records": 282, "date_min": "01/06/2026", "date_max": "27/08/2026", "completion_rate": 99.6, "n_campanas": 8, "n_servicios": 14, "n_estados": 29, "n_municipios": 112, "months": ["2026-06", "2026-07", "2026-08"]}, "monthly": [{"month": "2026-06", "count": 92, "completado": 92, "pendiente": 0}, {"month": "2026-07", "count": 95, "completado": 94, "pendiente": 1}, {"month": "2026-08", "count": 95, "completado": 95, "pendiente": 0}], "by_campana": [{"campana": "PLIIS", "count": 231, "completion_rate": 100.0, "by_month": {"2026-06": 83, "2026-07": 79, "2026-08": 69}, "top_servicio": "ORIENTACIÓN PSICOLÓGICA"}, {"campana": "CONTIGO TRADICIONAL", "count": 20, "completion_rate": 100.0, "by_month": {"2026-06": 5, "2026-07": 8, "2026-08": 7}, "top_servicio": "ORIENTACIÓN MÉDICA"}, {"campana": "CONTIGO PRESTIGE", "count": 17, "completion_rate": 100.0, "by_month": {"2026-06": 2, "2026-07": 3, "2026-08": 12}, "top_servicio": "CHECK UP MÉDICO"}, {"campana": "CONTIGO CLASICA", "count": 5, "completion_rate": 100.0, "by_month": {"2026-06": 2, "2026-07": 1, "2026-08": 2}, "top_servicio": "ORIENTACIÓN PSICOLÓGICA"}, {"campana": "SALUD TOTAL DONDE", "count": 3, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 0, "2026-08": 3}, "top_servicio": "DENTAL"}, {"campana": "CR Contigo", "count": 3, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 2, "2026-08": 1}, "top_servicio": "ORIENTACIÓN MÉDICA"}, {"campana": "BANORTE", "count": 2, "completion_rate": 50.0, "by_month": {"2026-06": 0, "2026-07": 2, "2026-08": 0}, "top_servicio": "ORIENTACIÓN MÉDICA"}, {"campana": "Era Social", "count": 1, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 0, "2026-08": 1}, "top_servicio": "AMBULANCIA"}], "by_servicio": [{"servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 61, "by_month": {"2026-06": 25, "2026-07": 17, "2026-08": 19}}, {"servicio": "ORIENTACIÓN MÉDICA", "count": 45, "by_month": {"2026-06": 16, "2026-07": 16, "2026-08": 13}}, {"servicio": "CITAS MÉDICO ESPECIALISTA", "count": 40, "by_month": {"2026-06": 20, "2026-07": 15, "2026-08": 5}}, {"servicio": "INFORMACION", "count": 39, "by_month": {"2026-06": 15, "2026-07": 12, "2026-08": 12}}, {"servicio": "DENTAL", "count": 34, "by_month": {"2026-06": 8, "2026-07": 11, "2026-08": 15}}, {"servicio": "TELEMEDICINA", "count": 22, "by_month": {"2026-06": 5, "2026-07": 12, "2026-08": 5}}, {"servicio": "OTROS", "count": 41, "by_month": {"2026-06": 3, "2026-07": 12, "2026-08": 26}}], "servicio_full_ranking": [{"servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 61}, {"servicio": "ORIENTACIÓN MÉDICA", "count": 45}, {"servicio": "CITAS MÉDICO ESPECIALISTA", "count": 40}, {"servicio": "INFORMACION", "count": 39}, {"servicio": "DENTAL", "count": 34}, {"servicio": "TELEMEDICINA", "count": 22}, {"servicio": "ORIENTACIÓN NUTRICIONAL", "count": 17}, {"servicio": "CHECK UP MÉDICO", "count": 15}, {"servicio": "PLAN VISIÓN", "count": 3}, {"servicio": "CITA VETERINARIO", "count": 2}, {"servicio": "AMBULANCIA", "count": 1}, {"servicio": "ASISTENCIA FUNERARIA", "count": 1}, {"servicio": "HOGAR", "count": 1}, {"servicio": "ORIENTACIÓN VETERINARIA TELEFÓNICA", "count": 1}], "top_subservicios": [{"sub": "ORIENTACIÓN PSICOLOGICA TELEFONICA", "count": 63}, {"sub": "ORIENTACIÓN MÉDICA TELEFÓNICA ", "count": 48}, {"sub": "RED SERVICIOS MÉDICOS (descuentos)", "count": 41}, {"sub": "APP DIGITAL", "count": 20}, {"sub": "ORIENTACIÓN NUTRICIONAL TELEFONICA", "count": 17}, {"sub": "LIMPIEZA DENTAL, VALORACIÓN", "count": 17}, {"sub": "CHECK UP MÉDICO", "count": 13}, {"sub": "PSICOLOGICA", "count": 9}, {"sub": "ORIENTACIÓN MÉDICA", "count": 6}, {"sub": "CONSULTA Y DIAGNOSTICO", "count": 5}, {"sub": "INFORMACION", "count": 4}, {"sub": "AMBULANCIA", "count": 4}], "top_estados": [{"estado": "MÉXICO", "count": 60}, {"estado": "CIUDAD DE MÉXICO", "count": 48}, {"estado": "JALISCO", "count": 20}, {"estado": "VERACRUZ", "count": 16}, {"estado": "NUEVO LEÓN", "count": 14}, {"estado": "BAJA CALIFORNIA", "count": 12}, {"estado": "ZACATECAS", "count": 11}, {"estado": "COAHUILA DE ZARAGOZA", "count": 10}, {"estado": "YUCATÁN", "count": 10}, {"estado": "HIDALGO", "count": 10}], "status": {"completado": 281, "pendiente": 1}, "data_quality": {"membresia_missing": 171, "membresia_missing_pct": 60.6}, "expuestos": {"campanas": ["CONTIGO CLASICA", "CR Contigo", "CONTIGO TRADICIONAL", "CONTIGO PRESTIGE", "PLIIS"], "meses": [{"month": "2026-06", "label": "Junio 2026", "disponible": false}, {"month": "2026-07", "label": "Julio 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 36, "CONTIGO TRADICIONAL": 2460, "CONTIGO PRESTIGE": 2707, "PLIIS": 12629}, "total_expuestos": 19048}, {"month": "2026-08", "label": "Agosto 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2469, "CONTIGO PRESTIGE": 3305, "PLIIS": 12622}, "total_expuestos": 19649}]}}</script>
+<script>
+const DATA = JSON.parse(document.getElementById('report-data').textContent);
+const MES_NOMBRES = {"2026-06": "Junio 2026", "2026-07": "Julio 2026", "2026-08": "Agosto 2026"};
+const MES_CORTO = {"2026-06":"Jun","2026-07":"Jul","2026-08":"Ago"};
+const fmtMoney = n => '$' + Number(n).toLocaleString('es-MX', {maximumFractionDigits:0});
+const fmtNum = n => Number(n).toLocaleString('es-MX');
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+const tooltip = document.getElementById('tooltip');
+function showTip(evt, html) {
+  tooltip.innerHTML = html;
+  tooltip.classList.add('show');
+  moveTip(evt);
+}
+function moveTip(evt) {
+  tooltip.style.left = evt.clientX + 'px';
+  tooltip.style.top = (evt.clientY - 10) + 'px';
+}
+function hideTip() { tooltip.classList.remove('show'); }
+
+// ---------- KPIs ----------
+(function renderKPIs() {
+  const m = DATA.meta;
+  const kpis = [
+    {label:'Asistencias solicitadas', value: fmtNum(m.total_records), sub: `${m.date_min} – ${m.date_max}`, accent:true},
+    {label:'Tasa de completado', value: m.completion_rate.toFixed(1)+'%', sub: `${DATA.status.completado} completadas / ${DATA.status.pendiente} pendiente`},
+    {label:'Campanas activas', value: m.n_campanas, sub: 'programas de asistencia distintos'},
+    {label:'Tipos de servicio', value: m.n_servicios, sub: 'categorias de servicio usadas'},
+    {label:'Cobertura geografica', value: m.n_estados + ' estados', sub: m.n_municipios + ' municipios distintos'},
+  ];
+  const grid = document.getElementById('kpi-grid');
+  grid.innerHTML = kpis.map(k => `
+    <div class="kpi ${k.accent?'accent':''}">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.value}</div>
+      <div class="sub">${k.sub}</div>
+    </div>`).join('');
+})();
+
+// ---------- Expuestos por cartera ----------
+(function renderExpuestos() {
+  const E = DATA.expuestos;
+  const meses = E.meses;
+  const jul = meses.find(m => m.month === '2026-07');
+  const ago = meses.find(m => m.month === '2026-08');
+
+  // KPIs
+  const kpis = [
+    {label:'Expuestos julio', value: fmtNum(jul.total_expuestos), sub:'5 carteras'},
+    {label:'Expuestos agosto', value: fmtNum(ago.total_expuestos), sub: `+${fmtNum(ago.total_expuestos-jul.total_expuestos)} vs. julio`, accent:true},
+    {label:'Variacion', value: `+${(((ago.total_expuestos-jul.total_expuestos)/jul.total_expuestos)*100).toFixed(1)}%`, sub:'julio a agosto'},
+  ];
+  document.getElementById('kpi-expuestos').innerHTML = kpis.map(k => `
+    <div class="kpi ${k.accent?'accent':''}">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.value}</div>
+      <div class="sub">${k.sub}</div>
+    </div>`).join('');
+
+  // Callout
+  const cardMax = E.campanas.reduce((a,c) => (ago.expuestos_por_campana[c]-jul.expuestos_por_campana[c]) > (ago.expuestos_por_campana[a]-jul.expuestos_por_campana[a]) ? c : a);
+  document.getElementById('callout-expuestos').innerHTML = `
+    <div class="icon">📈</div>
+    <div>
+      <h3>Contigo Prestige explica casi todo el crecimiento de expuestos</h3>
+      <p>Los expuestos totales pasaron de ${fmtNum(jul.total_expuestos)} en julio a ${fmtNum(ago.total_expuestos)} en agosto (+${fmtNum(ago.total_expuestos-jul.total_expuestos)}). Contigo Prestige aporto ${fmtNum(ago.expuestos_por_campana['CONTIGO PRESTIGE']-jul.expuestos_por_campana['CONTIGO PRESTIGE'])} de ese aumento (${fmtNum(jul.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(ago.expuestos_por_campana['CONTIGO PRESTIGE'])}); las demas carteras se mantuvieron casi sin cambio.</p>
+    </div>`;
+
+  // Chart: expuestos por cartera, jul vs ago
+  const cats = E.campanas;
+  const catsShort = {"CONTIGO CLASICA":"Contigo Clásica","CR Contigo":"CR Contigo","CONTIGO TRADICIONAL":"Contigo Tradic.","CONTIGO PRESTIGE":"Contigo Prestige","PLIIS":"PLIIS"};
+  const series = [
+    {name:'Julio', color: css('--series-1'), values: cats.map(c => jul.expuestos_por_campana[c])},
+    {name:'Agosto', color: css('--series-2'), values: cats.map(c => ago.expuestos_por_campana[c])},
+  ];
+  groupedBarChart(document.getElementById('chart-expuestos'), cats.map(c=>catsShort[c]), series, {valueFmt:fmtNum, height:260});
+
+  // Table
+  const rows = cats.map(c => `
+    <tr>
+      <td class="strong">${c}</td>
+      <td class="num">${fmtNum(jul.expuestos_por_campana[c])}</td>
+      <td class="num">${fmtNum(ago.expuestos_por_campana[c])}</td>
+      <td class="num">${ago.expuestos_por_campana[c]-jul.expuestos_por_campana[c]>=0?'+':''}${fmtNum(ago.expuestos_por_campana[c]-jul.expuestos_por_campana[c])}</td>
+    </tr>`).join('');
+  document.getElementById('table-expuestos').innerHTML = `
+    <thead><tr><th>Cartera</th><th>Expuestos julio</th><th>Expuestos agosto</th><th>Variacion</th></tr></thead>
+    <tbody>${rows}
+      <tr style="font-weight:700;">
+        <td class="strong">Total</td>
+        <td class="num">${fmtNum(jul.total_expuestos)}</td>
+        <td class="num">${fmtNum(ago.total_expuestos)}</td>
+        <td class="num">+${fmtNum(ago.total_expuestos-jul.total_expuestos)}</td>
+      </tr>
+    </tbody>`;
+})();
+
+// ---------- Generic SVG bar chart (vertical, single series) ----------
+function verticalBarChart(container, items, {color, valueFmt=fmtNum, height=220}={}) {
+  const W = 640, H = height, padL = 46, padR = 16, padT = 18, padB = 34;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const max = Math.max(...items.map(d=>d.value), 1) * 1.18;
+  const bw = innerW / items.length * 0.56;
+  const gap = innerW / items.length;
+  let gridLines = '';
+  const steps = 4;
+  for (let i=0;i<=steps;i++) {
+    const y = padT + innerH - (innerH*i/steps);
+    gridLines += `<line class="grid-line" x1="${padL}" x2="${W-padR}" y1="${y}" y2="${y}"/>`;
+  }
+  let bars = '';
+  items.forEach((d,i) => {
+    const x = padL + gap*i + (gap-bw)/2;
+    const h = (d.value/max)*innerH;
+    const y = padT + innerH - h;
+    bars += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="4" fill="${color}"
+      data-label="${d.label}" data-value="${d.value}" class="bar-el" style="cursor:pointer"/>`;
+    bars += `<text class="val-label" x="${(x+bw/2).toFixed(1)}" y="${(y-6).toFixed(1)}" text-anchor="middle">${valueFmt(d.value)}</text>`;
+    bars += `<text class="cat-label" x="${(x+bw/2).toFixed(1)}" y="${H-12}" text-anchor="middle">${d.label}</text>`;
+  });
+  container.innerHTML = `<svg class="chart" viewBox="0 0 ${W} ${H}">
+    ${gridLines}
+    <line class="baseline-line" x1="${padL}" x2="${W-padR}" y1="${padT+innerH}" y2="${padT+innerH}"/>
+    ${bars}
+  </svg>`;
+  container.querySelectorAll('.bar-el').forEach(el => {
+    el.addEventListener('mousemove', e => showTip(e, `<strong>${el.dataset.label}</strong><br>${valueFmt(+el.dataset.value)}`));
+    el.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ---------- Grouped vertical bar (2 series) ----------
+function groupedBarChart(container, categories, series, {valueFmt=fmtMoney, height=220}={}) {
+  const W = 640, H = height, padL = 60, padR = 16, padT = 18, padB = 34;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const allVals = series.flatMap(s=>s.values);
+  const max = Math.max(...allVals, 1) * 1.2;
+  const groupGap = innerW / categories.length;
+  const groupW = groupGap * 0.62;
+  const barW = groupW / series.length - 4;
+  let gridLines = '';
+  const steps = 4;
+  for (let i=0;i<=steps;i++) {
+    const y = padT + innerH - (innerH*i/steps);
+    gridLines += `<line class="grid-line" x1="${padL}" x2="${W-padR}" y1="${y}" y2="${y}"/>`;
+  }
+  let bars = '';
+  categories.forEach((cat,ci) => {
+    const gx = padL + groupGap*ci + (groupGap-groupW)/2;
+    series.forEach((s,si) => {
+      const v = s.values[ci];
+      const h = (v/max)*innerH;
+      const x = gx + si*(barW+4);
+      const y = padT + innerH - h;
+      bars += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${s.color}"
+        data-label="${cat} — ${s.name}" data-value="${v}" class="bar-el" style="cursor:pointer"/>`;
+    });
+    bars += `<text class="cat-label" x="${(gx+groupW/2).toFixed(1)}" y="${H-12}" text-anchor="middle">${cat}</text>`;
+  });
+  container.innerHTML = `<svg class="chart" viewBox="0 0 ${W} ${H}">
+    ${gridLines}
+    <line class="baseline-line" x1="${padL}" x2="${W-padR}" y1="${padT+innerH}" y2="${padT+innerH}"/>
+    ${bars}
+  </svg>
+  <div class="legend">${series.map(s=>`<span class="legend-item"><span class="legend-swatch" style="background:${s.color}"></span>${s.name}</span>`).join('')}</div>`;
+  container.querySelectorAll('.bar-el').forEach(el => {
+    el.addEventListener('mousemove', e => showTip(e, `<strong>${el.dataset.label}</strong><br>${fmtMoney(+el.dataset.value)}`));
+    el.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ---------- Horizontal bar chart (single series, sorted) ----------
+function horizontalBarChart(container, items, {color, valueFmt=fmtNum}={}) {
+  const max = Math.max(...items.map(d=>d.value), 1);
+  container.innerHTML = `<div class="bars">${items.map(d => `
+    <div class="bar-row">
+      <div class="bar-label" title="${d.label}">${d.label}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${(d.value/max*100).toFixed(1)}%; background:${color};" data-label="${d.label}" data-value="${d.value}"></div>
+      </div>
+      <div class="bar-value">${valueFmt(d.value)}</div>
+    </div>`).join('')}</div>`;
+  container.querySelectorAll('.bar-fill').forEach(el => {
+    el.addEventListener('mousemove', e => showTip(e, `<strong>${el.dataset.label}</strong><br>${valueFmt(+el.dataset.value)}`));
+    el.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ---------- Stacked bar chart (monthly service mix) ----------
+function stackedBarChart(container, months, seriesList, {height=240}={}) {
+  const W = 640, H = height, padL = 40, padR = 16, padT = 18, padB = 34;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const totals = months.map((m,mi) => seriesList.reduce((a,s)=>a+s.values[mi],0));
+  const max = Math.max(...totals,1) * 1.15;
+  const gap = innerW / months.length;
+  const bw = gap * 0.5;
+  let gridLines = '';
+  for (let i=0;i<=4;i++) {
+    const y = padT + innerH - (innerH*i/4);
+    gridLines += `<line class="grid-line" x1="${padL}" x2="${W-padR}" y1="${y}" y2="${y}"/>`;
+  }
+  let bars = '';
+  months.forEach((mo,mi) => {
+    let yCursor = padT + innerH;
+    const x = padL + gap*mi + (gap-bw)/2;
+    seriesList.forEach(s => {
+      const v = s.values[mi];
+      if (v<=0) return;
+      const h = (v/max)*innerH;
+      const y = yCursor - h;
+      bars += `<rect x="${x.toFixed(1)}" y="${(y+1).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-2,0).toFixed(1)}" fill="${s.color}"
+        data-label="${mo} — ${s.name}" data-value="${v}" class="bar-el" style="cursor:pointer"/>`;
+      yCursor = y;
+    });
+    bars += `<text class="cat-label" x="${(x+bw/2).toFixed(1)}" y="${H-12}" text-anchor="middle">${mo}</text>`;
+  });
+  container.innerHTML = `<svg class="chart" viewBox="0 0 ${W} ${H}">
+    ${gridLines}
+    <line class="baseline-line" x1="${padL}" x2="${W-padR}" y1="${padT+innerH}" y2="${padT+innerH}"/>
+    ${bars}
+  </svg>`;
+  container.querySelectorAll('.bar-el').forEach(el => {
+    el.addEventListener('mousemove', e => showTip(e, `<strong>${el.dataset.label}</strong><br>${fmtNum(+el.dataset.value)} solicitudes`));
+    el.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ---------- Render: volumen mensual ----------
+(function() {
+  const items = DATA.monthly.map(m => ({label: MES_CORTO[m.month], value: m.count}));
+  verticalBarChart(document.getElementById('chart-volumen'), items, {color: css('--series-2'), valueFmt:fmtNum});
+})();
+
+// ---------- Render: tabla mensual ----------
+(function() {
+  const rows = DATA.monthly.map(m => `
+    <tr>
+      <td class="strong">${MES_NOMBRES[m.month]}</td>
+      <td class="num">${fmtNum(m.count)}</td>
+      <td class="num">${m.completado}</td>
+      <td class="num">${m.pendiente}</td>
+    </tr>`).join('');
+  document.getElementById('table-mensual').innerHTML = `
+    <thead><tr><th>Mes</th><th>Asistencias solicitadas</th><th>Completadas</th><th>Pendientes</th></tr></thead>
+    <tbody>${rows}
+      <tr style="font-weight:700;"><td class="strong">Total</td>
+        <td class="num">${fmtNum(DATA.meta.total_records)}</td>
+        <td class="num">${DATA.status.completado}</td>
+        <td class="num">${DATA.status.pendiente}</td>
+      </tr>
+    </tbody>`;
+})();
+
+// ---------- Render: campanas ----------
+(function() {
+  const items = DATA.by_campana.map(c => ({label:c.campana, value:c.count}));
+  horizontalBarChart(document.getElementById('chart-campanas'), items, {color: css('--series-2'), valueFmt:fmtNum});
+
+  const rows = DATA.by_campana.map(c => `
+    <tr>
+      <td class="strong">${c.campana}</td>
+      <td class="num">${fmtNum(c.count)}</td>
+      <td>${c.top_servicio}</td>
+      <td>${c.completion_rate>=99 ? `<span class="pill good">${c.completion_rate}%</span>` : `<span class="pill warning">${c.completion_rate}%</span>`}</td>
+    </tr>`).join('');
+  document.getElementById('table-campanas').innerHTML = `
+    <thead><tr><th>Campana</th><th>Asistencias solicitadas</th><th>Servicio principal</th><th>% Completado</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+})();
+
+// ---------- Render: servicios ----------
+(function() {
+  const items = DATA.servicio_full_ranking.map(s => ({label:s.servicio, value:s.count}));
+  horizontalBarChart(document.getElementById('chart-servicios'), items, {color: css('--series-1'), valueFmt:fmtNum});
+})();
+
+// ---------- Render: servicios por mes (stacked) ----------
+(function() {
+  const months = DATA.meta.months.map(m => MES_CORTO[m]);
+  const palette = [css('--series-1'),css('--series-2'),css('--series-3'),css('--series-4'),css('--series-5'),css('--series-6'),css('--series-7')];
+  const seriesList = DATA.by_servicio.map((s,i) => ({
+    name: s.servicio, color: palette[i%palette.length],
+    values: DATA.meta.months.map(m => s.by_month[m] || 0)
+  }));
+  stackedBarChart(document.getElementById('chart-servicios-mes'), months, seriesList);
+  document.getElementById('legend-servicios-mes').innerHTML = seriesList.map(s =>
+    `<span class="legend-item"><span class="legend-swatch" style="background:${s.color}"></span>${s.name}</span>`).join('');
+})();
+
+// ---------- Render: sub-servicios table ----------
+(function() {
+  const rows = DATA.top_subservicios.map(s => `
+    <tr><td class="strong">${s.sub}</td><td class="num">${fmtNum(s.count)}</td></tr>`).join('');
+  document.getElementById('table-subservicios').innerHTML = `
+    <thead><tr><th>Sub-servicio</th><th>Asistencias solicitadas</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+})();
+
+// ---------- Render: estados ----------
+(function() {
+  const items = DATA.top_estados.map(e => ({label:e.estado, value:e.count}));
+  horizontalBarChart(document.getElementById('chart-estados'), items, {color: css('--series-3'), valueFmt:fmtNum});
+})();
+
+// ---------- Render: estatus ----------
+(function() {
+  const total = DATA.status.completado + DATA.status.pendiente;
+  const pctC = (DATA.status.completado/total*100).toFixed(1);
+  const pctP = (DATA.status.pendiente/total*100).toFixed(1);
+  const smallPending = DATA.status.pendiente>0 && (DATA.status.pendiente/total) < 0.08;
+  document.getElementById('chart-estatus').innerHTML = `
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="status-track" style="flex:1;">
+        <div class="status-seg" style="width:${smallPending?100:pctC}%; background:${css('--good')};">✓ Completado ${DATA.status.completado} (${pctC}%)</div>
+        ${(DATA.status.pendiente>0 && !smallPending) ? `<div class="status-seg" style="width:${pctP}%; background:${css('--warning')}; color:#3a2a00;">⏳ Pendiente ${DATA.status.pendiente}</div>` : ''}
+      </div>
+      ${smallPending ? `<span class="pill warning" style="font-size:12.5px; padding:6px 12px;">⏳ Pendiente: ${DATA.status.pendiente} (${pctP}%)</span>` : ''}
+    </div>`;
+})();
+
+// ---------- Hallazgos ----------
+(function() {
+  const m = DATA.monthly; // [0]=junio, [1]=julio, [2]=agosto
+  const E = DATA.expuestos;
+  const jul = E.meses.find(x=>x.month==='2026-07'), ago = E.meses.find(x=>x.month==='2026-08');
+  const findings = [
+    `Los expuestos totales crecieron ${(((ago.total_expuestos-jul.total_expuestos)/jul.total_expuestos)*100).toFixed(1)}% de julio a agosto (${fmtNum(jul.total_expuestos)} &rarr; ${fmtNum(ago.total_expuestos)}), impulsados casi por completo por Contigo Prestige (+${fmtNum(ago.expuestos_por_campana['CONTIGO PRESTIGE']-jul.expuestos_por_campana['CONTIGO PRESTIGE'])}); las demas carteras se mantuvieron casi sin cambio.`,
+    `El volumen de asistencias solicitadas en la bitacora del CAT se mantuvo estable entre junio (${m[0].count}), julio (${m[1].count}) y agosto (${m[2].count}), con variaciones menores al 4% mes a mes.`,
+    `PLIIS concentra ${DATA.by_campana[0].count} de ${DATA.meta.total_records} asistencias solicitadas (${(DATA.by_campana[0].count/DATA.meta.total_records*100).toFixed(0)}%); su servicio mas usado es ${DATA.by_campana[0].top_servicio.toLowerCase()}.`,
+    `El crecimiento de expuestos de Contigo Prestige es consistente con el aumento de sus asistencias solicitadas de Check Up Medico en agosto, visible en la mezcla de servicios por mes.`,
+    `Orientacion Psicologica y Orientacion Medica telefonica son los servicios de mayor demanda (${DATA.servicio_full_ranking[0].count} y ${DATA.servicio_full_ranking[1].count} asistencias solicitadas), seguidos por Citas con Medico Especialista e Informacion.`,
+    `La tasa de cierre en CRM es de ${DATA.meta.completion_rate}%: de ${DATA.meta.total_records} asistencias solicitadas, solo 1 (julio, Contigo Tradicional) permanece pendiente.`,
+    `Estado de Mexico y Ciudad de Mexico concentran ${(DATA.top_estados[0].count+DATA.top_estados[1].count)} de las ${DATA.meta.total_records} asistencias solicitadas (${((DATA.top_estados[0].count+DATA.top_estados[1].count)/DATA.meta.total_records*100).toFixed(0)}%), seguidos por Jalisco y Veracruz.`,
+  ];
+  document.getElementById('obs-list').innerHTML = findings.map((f,i) => `<li><span class="num">${i+1}</span><span>${f}</span></li>`).join('');
+})();
+
+</script>
+</body>
+</html>
