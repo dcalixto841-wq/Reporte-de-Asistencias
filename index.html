@@ -244,7 +244,7 @@
     </div>
     <div class="header-meta">
       Periodo analizado: <strong>Junio &ndash; Agosto 2026</strong><br>
-      Generado: <strong>7 de septiembre de 2026</strong>
+      Generado: <strong>14 de septiembre de 2026</strong>
     </div>
   </div>
 </header>
@@ -326,7 +326,7 @@
   </section>
 
   <section id="sec-geografia">
-    <div class="section-head"><h2>Distribucion geografica</h2><span class="n">30 estados, 112 municipios</span></div>
+    <div class="section-head"><h2>Distribucion geografica</h2><span class="n">29 estados, 112 municipios</span></div>
     <p class="section-note">Estado de Mexico y Ciudad de Mexico concentran el 38% de las solicitudes del periodo.</p>
     <div class="card">
       <h3>Top 10 estados</h3>
@@ -692,7 +692,7 @@ function stackedBarChart(container, months, seriesList, {height=240}={}) {
     `PLIIS concentra ${DATA.by_campana[0].count} de ${DATA.meta.total_records} asistencias solicitadas (${(DATA.by_campana[0].count/DATA.meta.total_records*100).toFixed(0)}%); su servicio mas usado es ${DATA.by_campana[0].top_servicio.toLowerCase()}.`,
     `Contigo Prestige es la unica cartera con crecimiento sostenido de expuestos los tres meses (${fmtNum(jun.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(jul.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(ago.expuestos_por_campana['CONTIGO PRESTIGE'])}), consistente con el aumento de sus asistencias solicitadas de Check Up Medico visible en la mezcla de servicios por mes.`,
     `Orientacion Psicologica y Orientacion Medica telefonica son los servicios de mayor demanda (${DATA.servicio_full_ranking[0].count} y ${DATA.servicio_full_ranking[1].count} asistencias solicitadas), seguidos por Citas con Medico Especialista e Informacion.`,
-    `La tasa de cierre en CRM es de ${DATA.meta.completion_rate}%: de ${DATA.meta.total_records} asistencias solicitadas, solo 1 (julio, Contigo Tradicional) permanece pendiente.`,
+    `La tasa de cierre en CRM es de ${DATA.meta.completion_rate}%: de ${DATA.meta.total_records} asistencias solicitadas, solo 1 (julio, Banorte) permanece pendiente.`,
     `Estado de Mexico y Ciudad de Mexico concentran ${(DATA.top_estados[0].count+DATA.top_estados[1].count)} de las ${DATA.meta.total_records} asistencias solicitadas (${((DATA.top_estados[0].count+DATA.top_estados[1].count)/DATA.meta.total_records*100).toFixed(0)}%), seguidos por Jalisco y Veracruz.`,
   ];
   document.getElementById('obs-list').innerHTML = findings.map((f,i) => `<li><span class="num">${i+1}</span><span>${f}</span></li>`).join('');
