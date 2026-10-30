@@ -243,8 +243,8 @@
       </div>
     </div>
     <div class="header-meta">
-      Periodo analizado: <strong>Junio &ndash; Septiembre 2026</strong><br>
-      Generado: <strong>1 de octubre de 2026</strong>
+      Periodo analizado: <strong>Junio &ndash; Octubre 2026</strong><br>
+      Generado: <strong>30 de octubre de 2026</strong>
     </div>
   </div>
 </header>
@@ -253,7 +253,7 @@
 
   <div class="hero">
     <h1>Reporte de Usabilidad de Asistencias</h1>
-    <p>Analisis detallado de las solicitudes de servicio (asistencias) registradas por el CAT y de los expuestos por cartera, con desglose de volumen y comportamiento por campana, servicio y region. Fuente: bitacora de solicitudes (Excel), 372 registros del 01/06/2026 al 30/09/2026, mas los expuestos mensuales de junio a septiembre. Esta version no incluye costos ni tarifas.</p>
+    <p>Analisis detallado de las solicitudes de servicio (asistencias) registradas por el CAT y de los expuestos por cartera, con desglose de volumen y comportamiento por campana, servicio y region. Fuente: bitacora de solicitudes (Excel), 466 registros del 01/06/2026 al 28/10/2026, mas los expuestos mensuales de junio a octubre. Esta version no incluye costos ni tarifas.</p>
   </div>
 
   <div class="kpi-grid" id="kpi-grid"></div>
@@ -272,7 +272,7 @@
     <div class="callout" id="callout-expuestos"></div>
     <div class="card">
       <h3>Expuestos por cartera</h3>
-      <div class="card-sub">Junio a septiembre 2026</div>
+      <div class="card-sub">Junio a octubre 2026</div>
       <div id="chart-expuestos"></div>
     </div>
     <div class="table-wrap table-card">
@@ -282,7 +282,7 @@
 
   <section id="sec-tendencia">
     <div class="section-head"><h2>Tendencia mensual</h2><span class="n">volumen de asistencias &mdash; bitacora del CAT</span></div>
-    <p class="section-note">A partir de aqui el analisis usa la bitacora de solicitudes del CAT. El volumen de asistencias solicitadas crecio de junio a agosto y bajo en septiembre.</p>
+    <p class="section-note">A partir de aqui el analisis usa la bitacora de solicitudes del CAT.</p>
     <div class="card">
       <h3>Solicitudes por mes</h3>
       <div class="card-sub">Numero de asistencias solicitadas, por mes de llamada</div>
@@ -311,9 +311,17 @@
     </div>
   </section>
 
+  <section id="sec-servicios-mes">
+    <div class="section-head"><h2 id="h2-servicios-mes">Servicios del mes por cliente</h2><span class="n">que se brindo y a quien</span></div>
+    <p class="section-note" id="note-servicios-mes">Detalle del ultimo mes cerrado: cada servicio solicitado, agrupado por campana/cliente, para ver de un vistazo que se brindo en el mes.</p>
+    <div class="table-wrap table-card">
+      <table id="table-servicios-mes"></table>
+    </div>
+  </section>
+
   <section id="sec-servicios">
     <div class="section-head"><h2>Mezcla de servicios</h2><span class="n">que se usa cada mes</span></div>
-    <p class="section-note">Orientacion psicologica y orientacion medica telefonica son los servicios de asistencia mas solicitados en volumen.</p>
+    <p class="section-note">Orientacion medica y orientacion psicologica son los servicios de asistencia mas solicitados en volumen.</p>
     <div class="grid-2">
       <div class="card">
         <h3>Ranking de servicios</h3>
@@ -333,8 +341,8 @@
   </section>
 
   <section id="sec-geografia">
-    <div class="section-head"><h2>Distribucion geografica</h2><span class="n">31 estados, 129 municipios</span></div>
-    <p class="section-note">Estado de Mexico y Ciudad de Mexico concentran el 37% de las solicitudes del periodo.</p>
+    <div class="section-head"><h2>Distribucion geografica</h2><span class="n">30 estados, 144 municipios</span></div>
+    <p class="section-note">Estado de Mexico y Ciudad de Mexico concentran el 38% de las solicitudes del periodo.</p>
     <div class="card">
       <h3>Top 10 estados</h3>
       <div class="card-sub">Numero de solicitudes por estado</div>
@@ -351,16 +359,16 @@
 
   <footer>
     <span>ERA &middot; La Nueva Era en Asistencias</span>
-    <span>Fuente: Reporte_de_Usabilidad_Junio-Agosto_2026_APLOS.xlsx</span>
+    <span>Fuente: Reporte_de_Usabilidad_Junio-Octubre_2026_APLOS.xlsx</span>
   </footer>
 
 </div>
 
-<script id="report-data" type="application/json">{"meta": {"total_records": 372, "date_min": "01/06/2026", "date_max": "30/09/2026", "completion_rate": 98.9, "n_campanas": 8, "n_servicios": 14, "n_estados": 31, "n_municipios": 129, "months": ["2026-06", "2026-07", "2026-08", "2026-09"]}, "monthly": [{"month": "2026-06", "count": 92, "completado": 92, "confirmado": 0, "pendiente": 0}, {"month": "2026-07", "count": 95, "completado": 94, "confirmado": 0, "pendiente": 1}, {"month": "2026-08", "count": 100, "completado": 100, "confirmado": 0, "pendiente": 0}, {"month": "2026-09", "count": 85, "completado": 82, "confirmado": 3, "pendiente": 0}], "by_campana": [{"campana": "PLIIS", "count": 305, "completion_rate": 99.7, "by_month": {"2026-06": 83, "2026-07": 79, "2026-08": 73, "2026-09": 70}, "top_servicio": "ORIENTACIÓN PSICOLÓGICA"}, {"campana": "CONTIGO TRADICIONAL", "count": 24, "completion_rate": 100.0, "by_month": {"2026-06": 5, "2026-07": 8, "2026-08": 8, "2026-09": 3}, "top_servicio": "DENTAL"}, {"campana": "CONTIGO PRESTIGE", "count": 20, "completion_rate": 100.0, "by_month": {"2026-06": 2, "2026-07": 3, "2026-08": 12, "2026-09": 3}, "top_servicio": "CHECK UP MÉDICO"}, {"campana": "SALUD TOTAL DONDE", "count": 8, "completion_rate": 87.5, "by_month": {"2026-06": 0, "2026-07": 0, "2026-08": 3, "2026-09": 5}, "top_servicio": "DENTAL"}, {"campana": "CONTIGO CLASICA", "count": 6, "completion_rate": 100.0, "by_month": {"2026-06": 2, "2026-07": 1, "2026-08": 2, "2026-09": 1}, "top_servicio": "CITAS MÉDICO ESPECIALISTA"}, {"campana": "BANORTE", "count": 5, "completion_rate": 60.0, "by_month": {"2026-06": 0, "2026-07": 2, "2026-08": 0, "2026-09": 3}, "top_servicio": "ORIENTACIÓN MÉDICA"}, {"campana": "CR Contigo", "count": 3, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 2, "2026-08": 1, "2026-09": 0}, "top_servicio": "ORIENTACIÓN MÉDICA"}, {"campana": "Era Social", "count": 1, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 0, "2026-08": 1, "2026-09": 0}, "top_servicio": "AMBULANCIA"}], "by_servicio": [{"servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 74, "by_month": {"2026-06": 25, "2026-07": 17, "2026-08": 19, "2026-09": 13}}, {"servicio": "ORIENTACIÓN MÉDICA", "count": 65, "by_month": {"2026-06": 16, "2026-07": 16, "2026-08": 13, "2026-09": 20}}, {"servicio": "CITAS MÉDICO ESPECIALISTA", "count": 54, "by_month": {"2026-06": 20, "2026-07": 15, "2026-08": 6, "2026-09": 13}}, {"servicio": "INFORMACION", "count": 50, "by_month": {"2026-06": 15, "2026-07": 12, "2026-08": 13, "2026-09": 10}}, {"servicio": "DENTAL", "count": 50, "by_month": {"2026-06": 8, "2026-07": 11, "2026-08": 18, "2026-09": 13}}, {"servicio": "TELEMEDICINA", "count": 31, "by_month": {"2026-06": 5, "2026-07": 12, "2026-08": 5, "2026-09": 9}}, {"servicio": "OTROS", "count": 48, "by_month": {"2026-06": 3, "2026-07": 12, "2026-08": 26, "2026-09": 7}}], "servicio_full_ranking": [{"servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 74}, {"servicio": "ORIENTACIÓN MÉDICA", "count": 65}, {"servicio": "CITAS MÉDICO ESPECIALISTA", "count": 54}, {"servicio": "INFORMACION", "count": 50}, {"servicio": "DENTAL", "count": 50}, {"servicio": "TELEMEDICINA", "count": 31}, {"servicio": "ORIENTACIÓN NUTRICIONAL", "count": 19}, {"servicio": "CHECK UP MÉDICO", "count": 18}, {"servicio": "PLAN VISIÓN", "count": 4}, {"servicio": "CITA VETERINARIO", "count": 2}, {"servicio": "AMBULANCIA", "count": 2}, {"servicio": "ORIENTACIÓN VETERINARIA TELEFÓNICA", "count": 1}, {"servicio": "HOGAR", "count": 1}, {"servicio": "ASISTENCIA FUNERARIA", "count": 1}], "top_subservicios": [{"sub": "ORIENTACIÓN PSICOLOGICA TELEFONICA", "count": 77}, {"sub": "ORIENTACIÓN MÉDICA TELEFÓNICA ", "count": 70}, {"sub": "RED SERVICIOS MÉDICOS (descuentos)", "count": 55}, {"sub": "APP DIGITAL", "count": 21}, {"sub": "ORIENTACIÓN NUTRICIONAL TELEFONICA", "count": 20}, {"sub": "LIMPIEZA DENTAL, VALORACIÓN", "count": 17}, {"sub": "CHECK UP MÉDICO", "count": 14}, {"sub": "PSICOLOGICA", "count": 12}, {"sub": "ORIENTACIÓN MÉDICA", "count": 9}, {"sub": "CONSULTA VALORACIÓN DIAGNOSTICO, LIMPIEZA DENTAL", "count": 9}, {"sub": "INFORMACION", "count": 8}, {"sub": "CONSULTA VALORACIÓN DIAGNOSTICO", "count": 6}], "top_estados": [{"estado": "MÉXICO", "count": 75}, {"estado": "CIUDAD DE MÉXICO", "count": 64}, {"estado": "NUEVO LEÓN", "count": 22}, {"estado": "VERACRUZ", "count": 21}, {"estado": "JALISCO", "count": 21}, {"estado": "BAJA CALIFORNIA", "count": 15}, {"estado": "YUCATÁN", "count": 14}, {"estado": "CHIAPAS", "count": 13}, {"estado": "COAHUILA DE ZARAGOZA", "count": 12}, {"estado": "HIDALGO", "count": 11}], "status": {"completado": 368, "confirmado": 3, "pendiente": 1}, "data_quality": {"membresia_missing": 171, "membresia_missing_pct": 46.0}, "expuestos": {"campanas": ["CONTIGO CLASICA", "CR Contigo", "CONTIGO TRADICIONAL", "CONTIGO PRESTIGE", "PLIIS", "SALUD TOTAL DONDE"], "meses": [{"month": "2026-06", "label": "Junio 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 36, "CONTIGO TRADICIONAL": 2460, "CONTIGO PRESTIGE": 2707, "PLIIS": 12629, "SALUD TOTAL DONDE": 0}, "total_expuestos": 19048}, {"month": "2026-07", "label": "Julio 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2469, "CONTIGO PRESTIGE": 3305, "PLIIS": 12622, "SALUD TOTAL DONDE": 0}, "total_expuestos": 19649}, {"month": "2026-08", "label": "Agosto 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2207, "CONTIGO PRESTIGE": 3365, "PLIIS": 12592, "SALUD TOTAL DONDE": 0}, "total_expuestos": 19417}, {"month": "2026-09", "label": "Septiembre 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2216, "CONTIGO PRESTIGE": 3477, "PLIIS": 12653, "SALUD TOTAL DONDE": 515}, "total_expuestos": 20114}]}}</script>
+<script id="report-data" type="application/json">{"meta": {"total_records": 466, "date_min": "01/06/2026", "date_max": "28/10/2026", "completion_rate": 99.4, "n_campanas": 8, "n_servicios": 15, "n_estados": 30, "n_municipios": 144, "months": ["2026-06", "2026-07", "2026-08", "2026-09", "2026-10"]}, "monthly": [{"month": "2026-06", "count": 92, "completado": 92, "confirmado": 0, "pendiente": 0}, {"month": "2026-07", "count": 95, "completado": 95, "confirmado": 0, "pendiente": 0}, {"month": "2026-08", "count": 100, "completado": 100, "confirmado": 0, "pendiente": 0}, {"month": "2026-09", "count": 85, "completado": 82, "confirmado": 3, "pendiente": 0}, {"month": "2026-10", "count": 94, "completado": 94, "confirmado": 0, "pendiente": 0}], "by_campana": [{"campana": "PLIIS", "count": 365, "completion_rate": 99.7, "by_month": {"2026-06": 83, "2026-07": 79, "2026-08": 73, "2026-09": 70, "2026-10": 60}, "top_servicio": "ORIENTACIÓN PSICOLÓGICA"}, {"campana": "CONTIGO PRESTIGE", "count": 28, "completion_rate": 100.0, "by_month": {"2026-06": 2, "2026-07": 3, "2026-08": 12, "2026-09": 3, "2026-10": 8}, "top_servicio": "CHECK UP MÉDICO"}, {"campana": "CONTIGO TRADICIONAL", "count": 27, "completion_rate": 100.0, "by_month": {"2026-06": 5, "2026-07": 8, "2026-08": 8, "2026-09": 3, "2026-10": 3}, "top_servicio": "DENTAL"}, {"campana": "SALUD TOTAL DONDE", "count": 22, "completion_rate": 95.5, "by_month": {"2026-06": 0, "2026-07": 0, "2026-08": 3, "2026-09": 5, "2026-10": 14}, "top_servicio": "DENTAL"}, {"campana": "BANORTE", "count": 10, "completion_rate": 90.0, "by_month": {"2026-06": 0, "2026-07": 2, "2026-08": 0, "2026-09": 3, "2026-10": 5}, "top_servicio": "ORIENTACIÓN NUTRICIONAL"}, {"campana": "CONTIGO CLASICA", "count": 9, "completion_rate": 100.0, "by_month": {"2026-06": 2, "2026-07": 1, "2026-08": 2, "2026-09": 1, "2026-10": 3}, "top_servicio": "CHECK UP MÉDICO"}, {"campana": "CR Contigo", "count": 4, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 2, "2026-08": 1, "2026-09": 0, "2026-10": 1}, "top_servicio": "ORIENTACIÓN MÉDICA"}, {"campana": "Era Social", "count": 1, "completion_rate": 100.0, "by_month": {"2026-06": 0, "2026-07": 0, "2026-08": 1, "2026-09": 0, "2026-10": 0}, "top_servicio": "AMBULANCIA"}], "by_servicio": [{"servicio": "ORIENTACIÓN MÉDICA", "count": 89, "by_month": {"2026-06": 16, "2026-07": 16, "2026-08": 13, "2026-09": 20, "2026-10": 24}}, {"servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 88, "by_month": {"2026-06": 25, "2026-07": 17, "2026-08": 19, "2026-09": 13, "2026-10": 14}}, {"servicio": "DENTAL", "count": 63, "by_month": {"2026-06": 8, "2026-07": 11, "2026-08": 18, "2026-09": 13, "2026-10": 13}}, {"servicio": "INFORMACION", "count": 62, "by_month": {"2026-06": 15, "2026-07": 12, "2026-08": 13, "2026-09": 10, "2026-10": 12}}, {"servicio": "CITAS MÉDICO ESPECIALISTA", "count": 61, "by_month": {"2026-06": 20, "2026-07": 15, "2026-08": 6, "2026-09": 13, "2026-10": 7}}, {"servicio": "TELEMEDICINA", "count": 35, "by_month": {"2026-06": 5, "2026-07": 12, "2026-08": 5, "2026-09": 9, "2026-10": 4}}, {"servicio": "OTROS", "count": 68, "by_month": {"2026-06": 3, "2026-07": 12, "2026-08": 26, "2026-09": 7, "2026-10": 20}}], "servicio_full_ranking": [{"servicio": "ORIENTACIÓN MÉDICA", "count": 89}, {"servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 88}, {"servicio": "DENTAL", "count": 63}, {"servicio": "INFORMACION", "count": 62}, {"servicio": "CITAS MÉDICO ESPECIALISTA", "count": 61}, {"servicio": "TELEMEDICINA", "count": 35}, {"servicio": "CHECK UP MÉDICO", "count": 28}, {"servicio": "ORIENTACIÓN NUTRICIONAL", "count": 25}, {"servicio": "PLAN VISIÓN", "count": 5}, {"servicio": "CITA VETERINARIO", "count": 3}, {"servicio": "ORIENTACIÓN VETERINARIA TELEFÓNICA", "count": 2}, {"servicio": "AMBULANCIA", "count": 2}, {"servicio": "HOGAR", "count": 1}, {"servicio": "ASISTENCIA FUNERARIA", "count": 1}, {"servicio": "JURIDICO", "count": 1}], "top_subservicios": [{"sub": "ORIENTACIÓN MÉDICA TELEFÓNICA", "count": 94}, {"sub": "ORIENTACIÓN PSICOLOGICA TELEFONICA", "count": 91}, {"sub": "RED SERVICIOS MÉDICOS (descuentos)", "count": 62}, {"sub": "ORIENTACIÓN NUTRICIONAL TELEFONICA", "count": 26}, {"sub": "INFORMACIÓN", "count": 25}, {"sub": "CHECK UP MÉDICO", "count": 24}, {"sub": "CONSULTA VALORACIÓN DIAGNOSTICO, LIMPIEZA DENTAL", "count": 22}, {"sub": "APP DIGITAL", "count": 21}, {"sub": "LIMPIEZA DENTAL, VALORACIÓN", "count": 17}, {"sub": "PSICOLOGICA", "count": 12}, {"sub": "ORIENTACIÓN MÉDICA", "count": 10}, {"sub": "CONSULTA VALORACIÓN DIAGNOSTICO", "count": 6}], "top_estados": [{"estado": "MÉXICO", "count": 100}, {"estado": "CIUDAD DE MÉXICO", "count": 77}, {"estado": "NUEVO LEÓN", "count": 35}, {"estado": "VERACRUZ", "count": 27}, {"estado": "JALISCO", "count": 24}, {"estado": "BAJA CALIFORNIA", "count": 20}, {"estado": "YUCATÁN", "count": 18}, {"estado": "COAHUILA DE ZARAGOZA", "count": 16}, {"estado": "GUANAJUATO", "count": 14}, {"estado": "HIDALGO", "count": 13}], "status": {"completado": 463, "confirmado": 3, "pendiente": 0}, "data_quality": {"membresia_missing": 192, "membresia_missing_pct": 41.2}, "detalle_campana_servicio_mes": {"2026-06": [{"campana": "CONTIGO CLASICA", "servicio": "INFORMACION", "count": 1}, {"campana": "CONTIGO CLASICA", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "INFORMACION", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN MÉDICA", "count": 3}, {"campana": "CONTIGO TRADICIONAL", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 2}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 24}, {"campana": "PLIIS", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 18}, {"campana": "PLIIS", "servicio": "INFORMACION", "count": 13}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN MÉDICA", "count": 13}, {"campana": "PLIIS", "servicio": "DENTAL", "count": 8}, {"campana": "PLIIS", "servicio": "TELEMEDICINA", "count": 5}, {"campana": "PLIIS", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 1}], "2026-07": [{"campana": "BANORTE", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "BANORTE", "servicio": "TELEMEDICINA", "count": 1}, {"campana": "CONTIGO CLASICA", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "CITA VETERINARIO", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "ORIENTACIÓN VETERINARIA TELEFÓNICA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "TELEMEDICINA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 3}, {"campana": "CONTIGO TRADICIONAL", "servicio": "PLAN VISIÓN", "count": 2}, {"campana": "CONTIGO TRADICIONAL", "servicio": "DENTAL", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "TELEMEDICINA", "count": 1}, {"campana": "CR Contigo", "servicio": "ORIENTACIÓN MÉDICA", "count": 2}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 17}, {"campana": "PLIIS", "servicio": "INFORMACION", "count": 12}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN MÉDICA", "count": 12}, {"campana": "PLIIS", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 11}, {"campana": "PLIIS", "servicio": "DENTAL", "count": 10}, {"campana": "PLIIS", "servicio": "TELEMEDICINA", "count": 9}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 6}, {"campana": "PLIIS", "servicio": "CHECK UP MÉDICO", "count": 2}], "2026-08": [{"campana": "CONTIGO CLASICA", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "CONTIGO CLASICA", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "CHECK UP MÉDICO", "count": 5}, {"campana": "CONTIGO PRESTIGE", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 3}, {"campana": "CONTIGO PRESTIGE", "servicio": "TELEMEDICINA", "count": 2}, {"campana": "CONTIGO PRESTIGE", "servicio": "INFORMACION", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "DENTAL", "count": 5}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "PLAN VISIÓN", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "TELEMEDICINA", "count": 1}, {"campana": "CR Contigo", "servicio": "CITA VETERINARIO", "count": 1}, {"campana": "Era Social", "servicio": "AMBULANCIA", "count": 1}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 19}, {"campana": "PLIIS", "servicio": "DENTAL", "count": 11}, {"campana": "PLIIS", "servicio": "INFORMACION", "count": 11}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN MÉDICA", "count": 10}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 7}, {"campana": "PLIIS", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 6}, {"campana": "PLIIS", "servicio": "CHECK UP MÉDICO", "count": 5}, {"campana": "PLIIS", "servicio": "TELEMEDICINA", "count": 2}, {"campana": "PLIIS", "servicio": "ASISTENCIA FUNERARIA", "count": 1}, {"campana": "PLIIS", "servicio": "HOGAR", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "DENTAL", "count": 2}, {"campana": "SALUD TOTAL DONDE", "servicio": "INFORMACION", "count": 1}], "2026-09": [{"campana": "BANORTE", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "BANORTE", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "BANORTE", "servicio": "TELEMEDICINA", "count": 1}, {"campana": "CONTIGO CLASICA", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "INFORMACION", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "DENTAL", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 1}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN MÉDICA", "count": 17}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 13}, {"campana": "PLIIS", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 10}, {"campana": "PLIIS", "servicio": "DENTAL", "count": 10}, {"campana": "PLIIS", "servicio": "INFORMACION", "count": 9}, {"campana": "PLIIS", "servicio": "TELEMEDICINA", "count": 8}, {"campana": "PLIIS", "servicio": "AMBULANCIA", "count": 1}, {"campana": "PLIIS", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "DENTAL", "count": 2}, {"campana": "SALUD TOTAL DONDE", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "PLAN VISIÓN", "count": 1}], "2026-10": [{"campana": "BANORTE", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 4}, {"campana": "BANORTE", "servicio": "JURIDICO", "count": 1}, {"campana": "CONTIGO CLASICA", "servicio": "CHECK UP MÉDICO", "count": 3}, {"campana": "CONTIGO PRESTIGE", "servicio": "CHECK UP MÉDICO", "count": 3}, {"campana": "CONTIGO PRESTIGE", "servicio": "CITA VETERINARIO", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "INFORMACION", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "ORIENTACIÓN VETERINARIA TELEFÓNICA", "count": 1}, {"campana": "CONTIGO PRESTIGE", "servicio": "TELEMEDICINA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "DENTAL", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "CONTIGO TRADICIONAL", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 1}, {"campana": "CR Contigo", "servicio": "DENTAL", "count": 1}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN MÉDICA", "count": 22}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 10}, {"campana": "PLIIS", "servicio": "INFORMACION", "count": 8}, {"campana": "PLIIS", "servicio": "CITAS MÉDICO ESPECIALISTA", "count": 7}, {"campana": "PLIIS", "servicio": "DENTAL", "count": 7}, {"campana": "PLIIS", "servicio": "CHECK UP MÉDICO", "count": 3}, {"campana": "PLIIS", "servicio": "TELEMEDICINA", "count": 2}, {"campana": "PLIIS", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "DENTAL", "count": 4}, {"campana": "SALUD TOTAL DONDE", "servicio": "INFORMACION", "count": 3}, {"campana": "SALUD TOTAL DONDE", "servicio": "ORIENTACIÓN PSICOLÓGICA", "count": 2}, {"campana": "SALUD TOTAL DONDE", "servicio": "CHECK UP MÉDICO", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "ORIENTACIÓN MÉDICA", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "ORIENTACIÓN NUTRICIONAL", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "PLAN VISIÓN", "count": 1}, {"campana": "SALUD TOTAL DONDE", "servicio": "TELEMEDICINA", "count": 1}]}, "expuestos": {"campanas": ["CONTIGO CLASICA", "CR Contigo", "CONTIGO TRADICIONAL", "CONTIGO PRESTIGE", "PLIIS", "SALUD TOTAL DONDE"], "meses": [{"month": "2026-06", "label": "Junio 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 36, "CONTIGO TRADICIONAL": 2460, "CONTIGO PRESTIGE": 2707, "PLIIS": 12629, "SALUD TOTAL DONDE": 0}, "total_expuestos": 19048}, {"month": "2026-07", "label": "Julio 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2469, "CONTIGO PRESTIGE": 3305, "PLIIS": 12622, "SALUD TOTAL DONDE": 0}, "total_expuestos": 19649}, {"month": "2026-08", "label": "Agosto 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2207, "CONTIGO PRESTIGE": 3365, "PLIIS": 12592, "SALUD TOTAL DONDE": 0}, "total_expuestos": 19417}, {"month": "2026-09", "label": "Septiembre 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 37, "CONTIGO TRADICIONAL": 2216, "CONTIGO PRESTIGE": 3477, "PLIIS": 12653, "SALUD TOTAL DONDE": 515}, "total_expuestos": 20114}, {"month": "2026-10", "label": "Octubre 2026", "disponible": true, "expuestos_por_campana": {"CONTIGO CLASICA": 1216, "CR Contigo": 243, "CONTIGO TRADICIONAL": 2148, "CONTIGO PRESTIGE": 3497, "PLIIS": 12516, "SALUD TOTAL DONDE": 757}, "total_expuestos": 20377}]}}</script>
 <script>
 const DATA = JSON.parse(document.getElementById('report-data').textContent);
-const MES_NOMBRES = {"2026-06": "Junio 2026", "2026-07": "Julio 2026", "2026-08": "Agosto 2026", "2026-09": "Septiembre 2026"};
-const MES_CORTO = {"2026-06":"Jun","2026-07":"Jul","2026-08":"Ago","2026-09":"Sep"};
+const MES_NOMBRES = {"2026-06": "Junio 2026", "2026-07": "Julio 2026", "2026-08": "Agosto 2026", "2026-09": "Septiembre 2026", "2026-10": "Octubre 2026"};
+const MES_CORTO = {"2026-06":"Jun","2026-07":"Jul","2026-08":"Ago","2026-09":"Sep","2026-10":"Oct"};
 const fmtMoney = n => '$' + Number(n).toLocaleString('es-MX', {maximumFractionDigits:0});
 const fmtNum = n => Number(n).toLocaleString('es-MX');
 const toTitle = s => s.toLowerCase().replace(/(^|\s)\S/g, c => c.toUpperCase());
@@ -400,11 +408,12 @@ function hideTip() { tooltip.classList.remove('show'); }
 // ---------- Expuestos por cartera ----------
 (function renderExpuestos() {
   const E = DATA.expuestos;
-  const meses = E.meses; // junio, julio, agosto, septiembre — todos disponibles
+  const meses = E.meses; // junio, julio, agosto, septiembre, octubre
   const jun = meses.find(m => m.month === '2026-06');
   const jul = meses.find(m => m.month === '2026-07');
   const ago = meses.find(m => m.month === '2026-08');
   const sep = meses.find(m => m.month === '2026-09');
+  const oct = meses.find(m => m.month === '2026-10');
   const sign = n => n>=0 ? '+' : '';
 
   // KPIs
@@ -412,8 +421,9 @@ function hideTip() { tooltip.classList.remove('show'); }
     {label:'Expuestos junio', value: fmtNum(jun.total_expuestos), sub:'5 carteras'},
     {label:'Expuestos julio', value: fmtNum(jul.total_expuestos), sub: `${sign(jul.total_expuestos-jun.total_expuestos)}${fmtNum(jul.total_expuestos-jun.total_expuestos)} vs. junio`},
     {label:'Expuestos agosto', value: fmtNum(ago.total_expuestos), sub: `${sign(ago.total_expuestos-jul.total_expuestos)}${fmtNum(ago.total_expuestos-jul.total_expuestos)} vs. julio`},
-    {label:'Expuestos septiembre', value: fmtNum(sep.total_expuestos), sub: `${sign(sep.total_expuestos-ago.total_expuestos)}${fmtNum(sep.total_expuestos-ago.total_expuestos)} vs. agosto`, accent:true},
-    {label:'Variacion junio&ndash;septiembre', value: `${sign(sep.total_expuestos-jun.total_expuestos)}${(((sep.total_expuestos-jun.total_expuestos)/jun.total_expuestos)*100).toFixed(1)}%`, sub:'acumulada'},
+    {label:'Expuestos septiembre', value: fmtNum(sep.total_expuestos), sub: `${sign(sep.total_expuestos-ago.total_expuestos)}${fmtNum(sep.total_expuestos-ago.total_expuestos)} vs. agosto`},
+    {label:'Expuestos octubre', value: fmtNum(oct.total_expuestos), sub: `${sign(oct.total_expuestos-sep.total_expuestos)}${fmtNum(oct.total_expuestos-sep.total_expuestos)} vs. septiembre`, accent:true},
+    {label:'Variacion junio&ndash;octubre', value: `${sign(oct.total_expuestos-jun.total_expuestos)}${(((oct.total_expuestos-jun.total_expuestos)/jun.total_expuestos)*100).toFixed(1)}%`, sub:'acumulada'},
   ];
   document.getElementById('kpi-expuestos').innerHTML = kpis.map(k => `
     <div class="kpi ${k.accent?'accent':''}">
@@ -423,17 +433,18 @@ function hideTip() { tooltip.classList.remove('show'); }
     </div>`).join('');
 
   // Callout
-  const dondeSep = sep.expuestos_por_campana['SALUD TOTAL DONDE'];
-  const prestigeDeltaSep = sep.expuestos_por_campana['CONTIGO PRESTIGE']-ago.expuestos_por_campana['CONTIGO PRESTIGE'];
-  const pliisDeltaSep = sep.expuestos_por_campana['PLIIS']-ago.expuestos_por_campana['PLIIS'];
+  const crDeltaOct = oct.expuestos_por_campana['CR Contigo']-sep.expuestos_por_campana['CR Contigo'];
+  const dondeDeltaOct = oct.expuestos_por_campana['SALUD TOTAL DONDE']-sep.expuestos_por_campana['SALUD TOTAL DONDE'];
+  const pliisDeltaOct = oct.expuestos_por_campana['PLIIS']-sep.expuestos_por_campana['PLIIS'];
+  const tradDeltaOct = oct.expuestos_por_campana['CONTIGO TRADICIONAL']-sep.expuestos_por_campana['CONTIGO TRADICIONAL'];
   document.getElementById('callout-expuestos').innerHTML = `
     <div class="icon">📈</div>
     <div>
-      <h3>Septiembre repunta por la incorporacion de Donde a la facturacion</h3>
-      <p>Tras subir en julio (+${fmtNum(jul.total_expuestos-jun.total_expuestos)}, por Contigo Prestige) y ceder en agosto (${fmtNum(ago.total_expuestos-jul.total_expuestos)}, por Contigo Tradicional), los expuestos totales repuntaron a ${fmtNum(sep.total_expuestos)} en septiembre (+${fmtNum(sep.total_expuestos-ago.total_expuestos)}, +${(((sep.total_expuestos-ago.total_expuestos)/ago.total_expuestos)*100).toFixed(1)}%). La mayor parte de ese repunte viene de que Donde se incorpora por primera vez a la facturacion de expuestos (${fmtNum(dondeSep)} vidas), junto con el crecimiento sostenido de Contigo Prestige (+${fmtNum(prestigeDeltaSep)}) y PLIIS (+${fmtNum(pliisDeltaSep)}).</p>
+      <h3>Octubre crece por nuevas altas en CR Contigo y por Donde, pese a la caida de PLIIS</h3>
+      <p>Los expuestos totales subieron de ${fmtNum(sep.total_expuestos)} en septiembre a ${fmtNum(oct.total_expuestos)} en octubre (${sign(oct.total_expuestos-sep.total_expuestos)}${fmtNum(oct.total_expuestos-sep.total_expuestos)}, ${(((oct.total_expuestos-sep.total_expuestos)/sep.total_expuestos)*100).toFixed(1)}%). El mayor impulso vino de CR Contigo (${fmtNum(sep.expuestos_por_campana['CR Contigo'])} &rarr; ${fmtNum(oct.expuestos_por_campana['CR Contigo'])}, ${sign(crDeltaOct)}${fmtNum(crDeltaOct)} por nuevas altas confirmadas) y de Donde (${sign(dondeDeltaOct)}${fmtNum(dondeDeltaOct)}), que compensaron la caida de PLIIS (${sign(pliisDeltaOct)}${fmtNum(pliisDeltaOct)}) y Contigo Tradicional (${sign(tradDeltaOct)}${fmtNum(tradDeltaOct)}).</p>
     </div>`;
 
-  // Chart: expuestos por cartera, jun / jul / ago / sep
+  // Chart: expuestos por cartera, jun / jul / ago / sep / oct
   const cats = E.campanas;
   const catsShort = {"CONTIGO CLASICA":"Contigo Clásica","CR Contigo":"CR Contigo","CONTIGO TRADICIONAL":"Contigo Tradic.","CONTIGO PRESTIGE":"Contigo Prestige","PLIIS":"PLIIS","SALUD TOTAL DONDE":"Dondé"};
   const series = [
@@ -441,24 +452,26 @@ function hideTip() { tooltip.classList.remove('show'); }
     {name:'Julio', color: css('--series-2'), values: cats.map(c => jul.expuestos_por_campana[c] || 0)},
     {name:'Agosto', color: css('--series-3'), values: cats.map(c => ago.expuestos_por_campana[c] || 0)},
     {name:'Septiembre', color: css('--series-4'), values: cats.map(c => sep.expuestos_por_campana[c] || 0)},
+    {name:'Octubre', color: css('--series-5'), values: cats.map(c => oct.expuestos_por_campana[c] || 0)},
   ];
   groupedBarChart(document.getElementById('chart-expuestos'), cats.map(c=>catsShort[c]), series, {valueFmt:fmtNum, height:260});
 
   // Table
   const rows = cats.map(c => {
-    const vJun = jun.expuestos_por_campana[c] || 0, vSep = sep.expuestos_por_campana[c] || 0;
+    const vJun = jun.expuestos_por_campana[c] || 0, vOct = oct.expuestos_por_campana[c] || 0;
     return `
     <tr>
       <td class="strong">${c}</td>
       <td class="num">${fmtNum(vJun)}</td>
       <td class="num">${fmtNum(jul.expuestos_por_campana[c] || 0)}</td>
       <td class="num">${fmtNum(ago.expuestos_por_campana[c] || 0)}</td>
-      <td class="num">${fmtNum(vSep)}</td>
-      <td class="num">${sign(vSep-vJun)}${fmtNum(vSep-vJun)}</td>
+      <td class="num">${fmtNum(sep.expuestos_por_campana[c] || 0)}</td>
+      <td class="num">${fmtNum(vOct)}</td>
+      <td class="num">${sign(vOct-vJun)}${fmtNum(vOct-vJun)}</td>
     </tr>`;
   }).join('');
   document.getElementById('table-expuestos').innerHTML = `
-    <thead><tr><th>Cartera</th><th>Junio</th><th>Julio</th><th>Agosto</th><th>Septiembre</th><th>Variacion (jun&ndash;sep)</th></tr></thead>
+    <thead><tr><th>Cartera</th><th>Junio</th><th>Julio</th><th>Agosto</th><th>Septiembre</th><th>Octubre</th><th>Variacion (jun&ndash;oct)</th></tr></thead>
     <tbody>${rows}
       <tr style="font-weight:700;">
         <td class="strong">Total</td>
@@ -466,7 +479,8 @@ function hideTip() { tooltip.classList.remove('show'); }
         <td class="num">${fmtNum(jul.total_expuestos)}</td>
         <td class="num">${fmtNum(ago.total_expuestos)}</td>
         <td class="num">${fmtNum(sep.total_expuestos)}</td>
-        <td class="num">${sign(sep.total_expuestos-jun.total_expuestos)}${fmtNum(sep.total_expuestos-jun.total_expuestos)}</td>
+        <td class="num">${fmtNum(oct.total_expuestos)}</td>
+        <td class="num">${sign(oct.total_expuestos-jun.total_expuestos)}${fmtNum(oct.total_expuestos-jun.total_expuestos)}</td>
       </tr>
     </tbody>`;
 })();
@@ -505,15 +519,15 @@ function verticalBarChart(container, items, {color, valueFmt=fmtNum, height=220}
   });
 }
 
-// ---------- Grouped vertical bar (2 series) ----------
+// ---------- Grouped vertical bar (multi series) ----------
 function groupedBarChart(container, categories, series, {valueFmt=fmtNum, height=220}={}) {
   const W = 640, H = height, padL = 60, padR = 16, padT = 18, padB = 34;
   const innerW = W - padL - padR, innerH = H - padT - padB;
   const allVals = series.flatMap(s=>s.values);
   const max = Math.max(...allVals, 1) * 1.2;
   const groupGap = innerW / categories.length;
-  const groupW = groupGap * 0.62;
-  const barW = groupW / series.length - 4;
+  const groupW = groupGap * 0.72;
+  const barW = groupW / series.length - 3;
   let gridLines = '';
   const steps = 4;
   for (let i=0;i<=steps;i++) {
@@ -526,7 +540,7 @@ function groupedBarChart(container, categories, series, {valueFmt=fmtNum, height
     series.forEach((s,si) => {
       const v = s.values[ci];
       const h = (v/max)*innerH;
-      const x = gx + si*(barW+4);
+      const x = gx + si*(barW+3);
       const y = padT + innerH - h;
       bars += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${s.color}"
         data-label="${cat} — ${s.name}" data-value="${v}" class="bar-el" style="cursor:pointer"/>`;
@@ -646,6 +660,41 @@ function stackedBarChart(container, months, seriesList, {height=240}={}) {
     <tbody>${rows}</tbody>`;
 })();
 
+// ---------- Render: servicios del mes por cliente ----------
+(function() {
+  const months = DATA.meta.months;
+  const latest = months[months.length-1];
+  const rows = (DATA.detalle_campana_servicio_mes && DATA.detalle_campana_servicio_mes[latest]) || [];
+  const totalMes = rows.reduce((a,r)=>a+r.count,0);
+
+  document.getElementById('h2-servicios-mes').textContent = `Servicios de ${MES_NOMBRES[latest]} por cliente`;
+  document.getElementById('note-servicios-mes').textContent = `Lo que se brindo en ${MES_NOMBRES[latest]}: ${fmtNum(totalMes)} asistencias solicitadas, por campana/cliente y tipo de servicio. Esta tabla se actualiza cada mes con el mes mas reciente.`;
+
+  // Agrupar por campana para fusionar visualmente la primera columna (rowspan)
+  const groups = [];
+  rows.forEach(r => {
+    let g = groups.find(g => g.campana === r.campana);
+    if (!g) { g = {campana: r.campana, items: []}; groups.push(g); }
+    g.items.push(r);
+  });
+
+  const bodyRows = groups.map(g => {
+    const subtotal = g.items.reduce((a,r)=>a+r.count,0);
+    return g.items.map((r,i) => `
+      <tr>
+        ${i===0 ? `<td class="strong" rowspan="${g.items.length}">${g.campana}<div style="font-weight:400; color:var(--muted); font-size:11.5px;">${fmtNum(subtotal)} en total</div></td>` : ''}
+        <td>${r.servicio}</td>
+        <td class="num">${fmtNum(r.count)}</td>
+      </tr>`).join('');
+  }).join('');
+
+  document.getElementById('table-servicios-mes').innerHTML = `
+    <thead><tr><th>Campana / cliente</th><th>Servicio</th><th>Asistencias solicitadas</th></tr></thead>
+    <tbody>${bodyRows}
+      <tr style="font-weight:700;"><td class="strong" colspan="2">Total ${MES_NOMBRES[latest]}</td><td class="num">${fmtNum(totalMes)}</td></tr>
+    </tbody>`;
+})();
+
 // ---------- Render: servicios ----------
 (function() {
   const items = DATA.servicio_full_ranking.map(s => ({label:s.servicio, value:s.count}));
@@ -701,18 +750,20 @@ function stackedBarChart(container, months, seriesList, {height=240}={}) {
     </div>`;
 })();
 
-// ---------- Hallazgos ----------
+// ---------- Hallazgos / Resumen ejecutivo ----------
 (function() {
-  const m = DATA.monthly; // [0]=junio, [1]=julio, [2]=agosto, [3]=septiembre
+  const m = DATA.monthly; // [0]=junio, [1]=julio, [2]=agosto, [3]=septiembre, [4]=octubre
   const E = DATA.expuestos;
-  const jun = E.meses.find(x=>x.month==='2026-06'), jul = E.meses.find(x=>x.month==='2026-07'), ago = E.meses.find(x=>x.month==='2026-08'), sep = E.meses.find(x=>x.month==='2026-09');
+  const jun = E.meses.find(x=>x.month==='2026-06'), jul = E.meses.find(x=>x.month==='2026-07'),
+        ago = E.meses.find(x=>x.month==='2026-08'), sep = E.meses.find(x=>x.month==='2026-09'),
+        oct = E.meses.find(x=>x.month==='2026-10');
   const findings = [
-    `Los expuestos totales crecieron ${(((jul.total_expuestos-jun.total_expuestos)/jun.total_expuestos)*100).toFixed(1)}% de junio a julio (${fmtNum(jun.total_expuestos)} &rarr; ${fmtNum(jul.total_expuestos)}) por Contigo Prestige, cedieron ${Math.abs(((ago.total_expuestos-jul.total_expuestos)/jul.total_expuestos)*100).toFixed(1)}% en agosto (${fmtNum(ago.total_expuestos)}) por la caida de Contigo Tradicional, y repuntaron ${(((sep.total_expuestos-ago.total_expuestos)/ago.total_expuestos)*100).toFixed(1)}% en septiembre (${fmtNum(sep.total_expuestos)}), impulsados sobre todo por la incorporacion de Donde a la facturacion (${fmtNum(sep.expuestos_por_campana['SALUD TOTAL DONDE'])} vidas).`,
-    `El volumen de asistencias solicitadas en la bitacora del CAT crecio de junio (${m[0].count}) a agosto (${m[2].count}) y bajo en septiembre (${m[3].count}).`,
+    `Los expuestos totales crecieron de ${fmtNum(jun.total_expuestos)} en junio a ${fmtNum(sep.total_expuestos)} en septiembre, y subieron de nuevo a ${fmtNum(oct.total_expuestos)} en octubre (${(((oct.total_expuestos-sep.total_expuestos)/sep.total_expuestos)*100).toFixed(1)}%), impulsados por nuevas altas en CR Contigo (${fmtNum(sep.expuestos_por_campana['CR Contigo'])} &rarr; ${fmtNum(oct.expuestos_por_campana['CR Contigo'])}) y por Donde (${fmtNum(sep.expuestos_por_campana['SALUD TOTAL DONDE'])} &rarr; ${fmtNum(oct.expuestos_por_campana['SALUD TOTAL DONDE'])}).`,
+    `El volumen de asistencias solicitadas en la bitacora del CAT crecio de junio (${m[0].count}) a agosto (${m[2].count}), bajo en septiembre (${m[3].count}) y repunto en octubre (${m[4].count}).`,
     `PLIIS concentra ${DATA.by_campana[0].count} de ${DATA.meta.total_records} asistencias solicitadas (${(DATA.by_campana[0].count/DATA.meta.total_records*100).toFixed(0)}%); su servicio mas usado es ${DATA.by_campana[0].top_servicio.toLowerCase()}.`,
-    `Contigo Prestige es la unica cartera con crecimiento sostenido de expuestos en los cuatro meses (${fmtNum(jun.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(jul.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(ago.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(sep.expuestos_por_campana['CONTIGO PRESTIGE'])}), consistente con el aumento de sus asistencias solicitadas de Check Up Medico visible en la mezcla de servicios por mes.`,
-    `Orientacion Psicologica y Orientacion Medica telefonica son los servicios de mayor demanda (${DATA.servicio_full_ranking[0].count} y ${DATA.servicio_full_ranking[1].count} asistencias solicitadas), seguidos por Citas con Medico Especialista e Informacion.`,
-    `La tasa de cierre en CRM es de ${DATA.meta.completion_rate}%: de ${DATA.meta.total_records} asistencias solicitadas, ${DATA.status.confirmado} quedaron confirmadas (citas agendadas en septiembre) y solo 1 (julio, Banorte) permanece pendiente.`,
+    `Contigo Prestige es la unica cartera con crecimiento sostenido de expuestos en los cinco meses (${fmtNum(jun.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(jul.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(ago.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(sep.expuestos_por_campana['CONTIGO PRESTIGE'])} &rarr; ${fmtNum(oct.expuestos_por_campana['CONTIGO PRESTIGE'])}).`,
+    `${toTitle(DATA.servicio_full_ranking[0].servicio)} supero a ${toTitle(DATA.servicio_full_ranking[1].servicio)} como el servicio de mayor demanda (${DATA.servicio_full_ranking[0].count} vs. ${DATA.servicio_full_ranking[1].count} asistencias solicitadas), seguidos por Dental e Informacion.`,
+    `La tasa de cierre en CRM es de ${DATA.meta.completion_rate}%: de ${DATA.meta.total_records} asistencias solicitadas, ${DATA.status.confirmado} quedaron confirmadas (citas agendadas en septiembre) y no hay ninguna pendiente &mdash; el unico caso pendiente (julio, Banorte) ya se resolvio.`,
     `Estado de Mexico y Ciudad de Mexico concentran ${(DATA.top_estados[0].count+DATA.top_estados[1].count)} de las ${DATA.meta.total_records} asistencias solicitadas (${((DATA.top_estados[0].count+DATA.top_estados[1].count)/DATA.meta.total_records*100).toFixed(0)}%), seguidos por ${toTitle(DATA.top_estados[2].estado)} y ${toTitle(DATA.top_estados[3].estado)}.`,
   ];
   document.getElementById('obs-list').innerHTML = findings.map((f,i) => `<li><span class="num">${i+1}</span><span>${f}</span></li>`).join('');
